@@ -1,0 +1,27 @@
+body{
+    background: linear-gradient(to right, rgb(0,0,0), rgb(0, 133, 185), rgb(0,0,0));
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+fieldset{
+    border: 5px solid aqua;
+}
+
+label{
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+legend{
+    color: aqua;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+input{
+    border: solid;
+}
