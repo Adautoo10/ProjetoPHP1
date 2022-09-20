@@ -1,14 +1,16 @@
 <?php
 
 
-class PessoaController 
+namespace ProjetoPHP\Controller;
+
+use ProjetoPHP\Model\PessoaModel;
+
+class PessoaController extends Controller
 {
 
     public static function index() 
     {
-        include 'Model/PessoaModel.php'; 
-        
-       
+     
         $model = new PessoaModel();
         $model->getAllRows();
         include 'View/modules/Pessoa/ListaPessoas.php';

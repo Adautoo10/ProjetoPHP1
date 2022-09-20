@@ -1,7 +1,12 @@
 <?php
 
+namespace ProjetoPHP\Controller;
 
-class FuncionarioController 
+use ProjetoPHP\Model\FuncionarioModel;
+
+
+
+class FuncionarioController extends Controller
 {
 
     public static function index() 

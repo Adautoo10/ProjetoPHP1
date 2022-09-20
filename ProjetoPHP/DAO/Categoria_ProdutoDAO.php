@@ -1,41 +1,36 @@
 <?php
 
-class Categoria_ProdutoDAO
+namespace ProjetoPHP\DAO;
+
+use ProjetoPHP\Model\categoria_produtoModel;
+use \PDO;
+
+class categoria_produtoDAO extends DAO
 {
- 
-    private $conexao;
 
+  
 
-    function __construct() 
+    function __construct()
     {
-        
-        $dsn = "mysql:host=localhost:3307;dbname=db_sistema";
-
-        $user = "root";
-        
-        $pass = "etecjau";
-        
-        
-        $this->conexao = new PDO($dsn, $user, $pass);
+        parent::__construct();
     }
 
 
-    
-    function insert(Categoria_ProdutoModel $model) 
+    function insert(Categoria_ProdutoModel $model)
     {
-        
-        $sql = "INSERT INTO Categoria_Produto (descricao) VALUES (?)";
-        
+ 
+        $sql = "INSERT INTO categoria_produto (descricao) VALUES (?)";
+
         $stmt = $this->conexao->prepare($sql);
 
         $stmt->bindValue(1, $model->descricao);
-        $stmt->execute();      
 
+        $stmt->execute();
     }
-
-    public function update(Categoria_ProdutoModel $model)
+    
+    public function update(categoria_produtoModel $model)
     {
-        $sql = "UPDATE Categoria_Produto SET descricao=? WHERE id=? ";
+        $sql = "UPDATE categoria_produto SET descricao=? WHERE id=?";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $model->descricao);
@@ -45,28 +40,29 @@ class Categoria_ProdutoDAO
 
     public function select()
     {
-        $sql = "SELECT * FROM Categoria_Produto";
+        $sql = "SELECT * FROM categoria_produto";
+
         $stmt = $this->conexao->prepare($sql);
+
         $stmt->execute();
+
         return $stmt->fetchAll(PDO::FETCH_CLASS);
-    } 
+    }
 
     public function selectById(int $id)
     {
-        include_once 'Model/Categoria_ProdutoModel.php';
-
-        $sql = "SELECT * FROM Categoria_Produto WHERE id = ?";
+        $sql = "SELECT * FROM categoria_produto WHERE id = ?";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $id);
         $stmt->execute();
 
-        return $stmt->fetchObject("Categoria_ProdutoModel"); 
+        return $stmt->fetchObject("Projeto_MVC\Model\categoria_produtoModel");
     }
 
     public function delete(int $id)
     {
-        $sql = "DELETE FROM Categoria_Produto WHERE id = ? ";
+        $sql = "DELETE FROM categoria_produto WHERE id = ?";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $id);

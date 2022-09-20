@@ -1,6 +1,12 @@
 <?php
 
-class PessoaModel
+
+namespace ProjetoPHP\Model;
+
+use ProjetoPHP\DAO\PessoaDAO;
+
+
+class PessoaModel extends Model
 {
    
     public $id, $nome, $rg, $cpf;

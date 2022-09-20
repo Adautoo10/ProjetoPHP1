@@ -1,7 +1,15 @@
 <?php
 
 
-class ProdutoController 
+namespace ProjetoPHP\Controller;
+
+
+
+use ProjetoPHP\Model\ProdutoModel;
+
+
+
+class ProdutoController extends Controller
 {
 
     public static function index() 

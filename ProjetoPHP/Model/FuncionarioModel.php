@@ -1,6 +1,11 @@
 <?php
 
-class FuncionarioModel
+namespace ProjetoPHP\Model;
+
+use ProjetoPHP\DAO\FuncionarioDAO;
+
+
+class FuncionarioModel extends Model
 {
    
     public $id, $nome, $cargo;

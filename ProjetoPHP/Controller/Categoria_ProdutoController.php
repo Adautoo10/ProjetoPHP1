@@ -1,51 +1,61 @@
 <?php
 
+namespace ProjetoPHP\Controller;
 
-class Categoria_ProdutoController 
+use ProjetoPHP\Model\Categoria_ProdutoModel;
+
+class Categoria_ProdutoController extends Controller
 {
 
-    public static function index() 
+    /**
+     * Os métodos index serão usados para devolver uma View.
+     */
+    public static function index()
     {
-        include 'Model/Categoria_ProdutoModel.php'; 
-        
-       
         $model = new Categoria_ProdutoModel();
         $model->getAllRows();
+
         include 'View/modules/Categoria_Produto/Categoria_ProdutoListar.php';
     }
 
-    
+
+   /**
+     * Devolve uma View contendo um formulário para o usuário.
+     */
     public static function form()
     {
-        include 'Model/Categoria_ProdutoModel.php'; 
         $model = new Categoria_ProdutoModel();
-      
+
         if(isset($_GET['id']))
-        $model = $model->getById( (int) $_GET['id']);
+            $model = $model->getById( (int) $_GET['id']);
+
+
         include 'View/modules/Categoria_Produto/FormCategoria_Produto.php';
     }
 
+    /**
+     * Preenche um Model para que seja enviado ao banco de dados para salvar.
+     */
+    public static function save()
+    {
+        // Abaixo cada propriedade do objeto sendo abastecida com os dados informados
+        // pelo usuário no formulário (note o envio via POST)
+        $categoria_produto = new Categoria_ProdutoModel();
 
-    public static function save() {
+        $categoria_produto->id = $_POST['id'];
+        $categoria_produto->descricao = $_POST['descricao'];
 
-        include 'Model/Categoria_ProdutoModel.php'; 
-        $Categoria_Produto = new Categoria_ProdutoModel();
-        $Categoria_Produto->id = $_POST['id'];
-        $Categoria_Produto->descricao = $_POST['descricao'];
-        $Categoria_Produto->save();  
+        $categoria_produto->save(); // chamando o método save da model.
 
         header("Location: /Categoria_Produto"); 
     }
 
     public static function delete()
     {
-        include 'Model/Categoria_ProdutoModel.php'; 
-
         $model = new Categoria_ProdutoModel();
 
-        $model->delete( (int) $_GET['id'] ); 
+        $model->delete( (int) $_GET['id'] );
 
-        header("Location: /Categoria_Produto"); 
+        header("Location: /Categoria_Produto");
     }
-
 }

@@ -1,6 +1,12 @@
 <?php
 
-class ProdutoModel
+namespace ProjetoPHP\Model;
+
+use ProjetoPHP\DAO\ProdutoDAO;
+
+
+
+class ProdutoModel extends Model
 {
    
     public $id, $nome, $preco, $descricao;

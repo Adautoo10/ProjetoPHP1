@@ -1,22 +1,20 @@
 <?php
 
-class PessoaDAO
+namespace ProjetoPHP\DAO;
+
+use ProjetoPHP\Model\PessoaModel;
+
+use \PDO;
+
+
+class PessoaDAO extends DAO
 {
  
-    private $conexao;
 
 
     function __construct() 
-    {
-        
-        $dsn = "mysql:host=localhost:3307;dbname=db_sistema";
-
-        $user = "root";
-        
-        $pass = "etecjau";
-        
-        
-        $this->conexao = new PDO($dsn, $user, $pass);
+    {   
+        parent::__construct();
     }
 
 
