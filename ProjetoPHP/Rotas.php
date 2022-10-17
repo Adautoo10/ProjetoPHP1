@@ -4,12 +4,25 @@ use ProjetoPHP\Controller\PessoaController;
 use ProjetoPHP\Controller\ProdutoController;
 use ProjetoPHP\Controller\Categoria_ProdutoController;
 use ProjetoPHP\Controller\FuncionarioController;
+use  ProjetoPHP\Controller\LoginController;
 
 $uri_parse = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 
 switch($uri_parse)
 {
+    case '/login':
+        LoginController::index();
+    break;
+
+    case '/login/auth':
+        LoginController::auth();
+    break;
+
+    case '/logout':
+        LoginController::logout();
+    break;
+    
     case '/pessoa':
         PessoaController::index();
     break;

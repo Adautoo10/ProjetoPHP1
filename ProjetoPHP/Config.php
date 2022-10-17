@@ -1,7 +1,7 @@
 <?php
 
 define('BASEDIR', dirname(__FILE__, 2));
-define('VIEWS', BASEDIR . 'ProjetoPHP/View/modules/');
+define('VIEWS', BASEDIR . '/ProjetoPHP/View/modules/');
 
 
 $_ENV['db']['host'] = 'localhost:3307';
