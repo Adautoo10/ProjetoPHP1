@@ -42,3 +42,12 @@ create table usuario(
 	senha varchar(100) not null,
     primary key (id)
 );
+
+create table cadastro(
+	id int auto_increment not null,
+    nome varchar(100) not null,
+	email varchar(100) not null,
+	senha varchar(100) not null,
+    primary key (id)
+);
+
