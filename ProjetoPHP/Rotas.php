@@ -4,7 +4,8 @@ use ProjetoPHP\Controller\PessoaController;
 use ProjetoPHP\Controller\ProdutoController;
 use ProjetoPHP\Controller\Categoria_ProdutoController;
 use ProjetoPHP\Controller\FuncionarioController;
-use  ProjetoPHP\Controller\LoginController;
+use ProjetoPHP\Controller\LoginController;
+use ProjetoPHP\Controller\CadastroController;
 
 $uri_parse = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -22,7 +23,21 @@ switch($uri_parse)
     case '/logout':
         LoginController::logout();
     break;
-    
+
+//Cadastro
+case '/cadastro':
+    CadastroController::index();
+break;
+
+case '/cadastro/auth':
+    CadastroController::auth();
+break;
+
+case '/cadastro':
+    CadastroController::logout();
+break;
+ 
+ //Pessoa
     case '/pessoa':
         PessoaController::index();
     break;
