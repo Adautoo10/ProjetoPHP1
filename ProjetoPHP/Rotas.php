@@ -5,7 +5,8 @@ use ProjetoPHP\Controller\ProdutoController;
 use ProjetoPHP\Controller\Categoria_ProdutoController;
 use ProjetoPHP\Controller\FuncionarioController;
 use ProjetoPHP\Controller\LoginController;
-use ProjetoPHP\Controller\CadastroController;
+use ProjetoPHP\Controller\CadastroLoginController;
+
 
 $uri_parse = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -25,16 +26,21 @@ switch($uri_parse)
     break;
 
 //Cadastro
-case '/cadastro':
-    CadastroController::index();
+
+case '/':
+    echo "página inicial";
+    break;
+
+case '/cadastro/form':
+    CadastroLoginController::form();
 break;
 
-case '/cadastro/auth':
-    CadastroController::auth();
+case '/cadastro/save':
+    CadastroLoginController::save();
 break;
 
-case '/cadastro':
-    CadastroController::logout();
+case '/cadastro/update':
+    CadastroLoginController::update();
 break;
  
  //Pessoa
